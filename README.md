@@ -1,35 +1,26 @@
-# Aperture HMI — Situational Awareness & Safety UX for Robotics
+# Aperture HMI
 
-A single-screen WebGL robot operator interface with Apple Liquid Glass design language. Built with React, TypeScript, Three.js, and React Three Fiber.
+### 3D Robot Operator Interface for Situational Awareness & Safety
 
-## Design Language
+Aperture HMI is an interactive 3D interface for supervising and controlling industrial robots.
 
-Apple Liquid Glass: translucent panels with `backdrop-filter: blur(24px) saturate(1.6)`, white-based glassmorphism, soft shadows, SF-style typography. No gratuitous color — alerts use system red/orange only when they mean something. `prefers-reduced-motion` respected throughout.
+Built with **React, TypeScript, Three.js, and React Three Fiber**.
 
-## Safety-Critical UX
+## Features
 
-- **IK Drag Controls** — CCD inverse kinematics solver. Drag the target gizmo in 3D; joints solve in real time with limit enforcement. Gizmo turns red when unreachable.
-- **E-Stop** — Two-step: arm → confirm. Keyboard shortcut `Esc`. Visual guard ring. Requires explicit Reset. All controls disabled when stopped.
-- **Collision Zones** — Wireframe spheres pulse and fill as joints approach. Arm segments glow red proportional to proximity. Alert cards stack in the left panel.
-- **Joint Limit Bars** — Fill bars turn orange → red near mechanical limits. Prevents damage.
-- **Point Cloud** — 4k simulated LiDAR points with sensor noise. Toggleable via accessible switch.
+- **3D Robot Control** — Drag the robot's end-effector target with real-time inverse kinematics.
+- **Collision Awareness** — Visualize collision zones and proximity between robot joints and obstacles.
+- **Joint Limits** — See joint positions and mechanical constraints in real time.
+- **Emergency Stop** — Two-step E-stop and explicit reset interaction.
+- **Point Cloud** — Visualize simulated LiDAR sensor data.
+- **Data Import** — Load `.csv`, `.json`, `.pcd`, `.ply`, and `.xyz` sensor data.
 
-## Accessible Drag-to-Load
+## Tech Stack
 
-Drop `.csv`, `.json`, `.pcd`, `.ply`, or `.xyz` files onto the viewport to load sensor data. The drop zone:
-- Activates only on dragover (not always visible)
-- Shows accepted file types clearly
-- Provides a toast confirmation on successful load
-- Keyboard alternative: the Data Import panel in the right sidebar
-- All interactive elements have `aria-label`, `role`, and `focus-visible` styles
+React · TypeScript · Three.js · React Three Fiber · Vite
 
-## Quick Start
+## Run Locally
 
 ```bash
 npm install
 npm run dev
-```
-
-## Stack
-
-React 18 · TypeScript · Three.js · @react-three/fiber · @react-three/drei · Vite
